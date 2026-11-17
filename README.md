@@ -116,5 +116,12 @@ Laporan HTML menyediakan antarmuka visual yang rapi dengan kotak-kotak terminal 
 **Santiko Kusnul Hakim**
 - GitHub: [@paktiko1986](https://github.com/paktiko1986)
 
-## 📝 Lisensi
-Proyek ini dilisensikan di bawah [MIT License](https://mit-license.org/).
+
+## 📝 Lisensi & Bebas Daur Ulang
+Proyek **WebSCANNER** ini bersifat **Open-Source**. Artinya, Anda **bebas untuk**:
+- ✅ Menggunakan *tool* ini untuk keperluan pribadi maupun komersial.
+- ✅ Memodifikasi, menyalin, dan mendistribusikan ulang kode ini.
+- ✅ Menggabungkannya dengan proyek lain.
+
+Satu-satunya syarat adalah tetap mencantumkan nama penulis asli (Santiko Kusnul Hakim) dan menyertakan salinan lisensi MIT jika Anda mendistribusikannya kembali. 
+Silakan *fork*, pelajari, dan jadikan *tool* ini lebih baik lagi! 🚀
