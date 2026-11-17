@@ -24,8 +24,8 @@ Pastikan Anda sudah menginstal **Go** (versi 1.21 atau lebih baru).
 
 ```bash
 # Clone repository ini
-git clone https://github.com/USERNAME/webscanner.git
-cd webscanner
+git clone https://github.com/paktiko1986/webScanner.git
+cd webScanner
 
 # Download dependencies
 go mod tidy
