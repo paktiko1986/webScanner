@@ -24,11 +24,99 @@ Pastikan Anda sudah menginstal **Go** (versi 1.21 atau lebih baru).
 
 ```bash
 # Clone repository ini
-git clone https://github.com/paktiko1986/webScanner.git
-cd webScanner
+git clone https://github.com/USERNAME/webscanner.git
+cd webscanner
 
 # Download dependencies
 go mod tidy
 
 # Build binary
 go build -o webscanner main.go
+```
+
+## 🛠️ Penggunaan Dasar
+
+```bash
+# Scan satu target
+./webscanner -url https://example.com
+
+# Scan banyak target dari file
+./webscanner -list livehosts.txt
+
+# Scan dengan output HTML dan JSON
+./webscanner -list livehosts.txt -html report.html -json report.json
+
+# Scan dengan concurrency lebih tinggi (default 3)
+./webscanner -list livehosts.txt -concurrency 10
+
+# Hanya tampilkan host yang berpotensi berbahaya (skor < 70)
+./webscanner -list livehosts.txt -only-interesting
+```
+
+### 🔑 Mengaktifkan NVD CVE Checker
+
+Untuk mengecek CVE berdasarkan versi teknologi yang ditemukan, Anda memerlukan API Key gratis dari [NVD](https://nvd.nist.gov/developers/request-an-api-key).
+
+```bash
+# Set API Key di environment variable (JANGAN di-hardcode!)
+export NVD_API_KEY="API_KEY_ANDA_DI_SINI"
+
+# Jalankan scanner dengan flag -cve
+./webscanner -list livehosts.txt -cve
+```
+
+### 📌 Daftar Flag Lengkap
+
+| Flag | Deskripsi | Default |
+|------|-----------|---------|
+| `-url` | Target URL tunggal | - |
+| `-list` | File berisi daftar URL (satu per baris) | - |
+| `-html` | Simpan laporan ke file HTML | - |
+| `-json` | Simpan hasil ke file JSON | - |
+| `-cve` | Aktifkan NVD CVE check (butuh `NVD_API_KEY`) | `false` |
+| `-fuzz` | Aktifkan parameter discovery | `false` |
+| `-no-js` | Lewati ekstraksi file JS (lebih cepat) | `false` |
+| `-quiet` | Hanya tampilkan progress bar & ringkasan | `false` |
+| `-concurrency` | Jumlah worker paralel | `3` |
+| `-timeout` | Timeout request (detik) | `15` |
+| `-only-interesting` | Hanya tampilkan host dengan skor < 70 | `false` |
+| `-resume` | Lanjutkan scan dari `progress-file` | `false` |
+| `-no-color` | Matikan output berwarna | `false` |
+
+## 📸 Contoh Output
+
+### 1. Terminal UI
+```text
+┌── 🔒 SSL DIAGNOSIS ─────────────────────────────────────────
+│ Host                      : example.com
+│ Status                    : OK (chain valid)
+└─────────────────────────────────────────────────────────────
+
+┌── ⚙️  TECH FINGERPRINT ─────────────────────────────────────
+│ language                  : PHP 8.2.30
+│ server                    : Nginx 1.18.0
+└─────────────────────────────────────────────────────────────
+
+┌── 🧩 NVD CVE CHECKER (PHP 8.2.30) ─────────────────────────
+│ CVE-2026-109618           : [CRITICAL 9.8] PHP2Shell RCE ...
+└─────────────────────────────────────────────────────────────
+```
+
+### 2. HTML Report
+Laporan HTML menyediakan antarmuka visual yang rapi dengan kotak-kotak terminal yang menampilkan detail setiap temuan.
+
+## ⚠️ Disclaimer
+
+*Tool* ini dibuat untuk tujuan **edukasi dan pengujian keamanan yang sah**.
+- **JANGAN** menggunakan *tool* ini pada sistem yang tidak Anda miliki atau tanpa izin tertulis.
+- Penggunaan *tool* ini untuk aktivitas ilegal adalah pelanggaran hukum dan bukan tanggung jawab pengembang.
+
+## 👨‍💻 Author
+
+**Santiko Kusnul Hakim**
+- GitHub: [@paktiko1986](https://github.com/paktiko1986)
+
+## 📝 Lisensi
+
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
+```
