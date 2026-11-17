@@ -117,6 +117,4 @@ Laporan HTML menyediakan antarmuka visual yang rapi dengan kotak-kotak terminal 
 - GitHub: [@paktiko1986](https://github.com/paktiko1986)
 
 ## 📝 Lisensi
-
-Proyek ini dilisensikan di bawah [MIT License](LICENSE).
-```
+Proyek ini dilisensikan di bawah [MIT License](https://mit-license.org/).
